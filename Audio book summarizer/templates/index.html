@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Book Summarizer</title>
+
+    
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+          <style>
+            *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background: linear-gradient(135deg,
+            #4facfe 0%,
+            #00f2fe 100%);
+}
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.card{
+    width:600px;
+    max-width:90%;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+
+    padding:50px;
+    border-radius:25px;
+
+    box-shadow:0 8px 32px rgba(0,0,0,0.2);
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,0.2);
+}
+
+h1{
+    color:white;
+    margin-bottom:15px;
+    font-size:2.3rem;
+}
+
+.subtitle{
+    color:white;
+    margin-bottom:35px;
+    font-size:1rem;
+}
+
+.upload-box{
+    display:block;
+
+    border:3px dashed rgba(255,255,255,0.6);
+    border-radius:20px;
+
+    padding:50px 20px;
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.upload-box:hover{
+    background:rgba(255,255,255,0.15);
+    transform:scale(1.02);
+}
+
+.upload-box i{
+    font-size:55px;
+    color:white;
+    margin-bottom:20px;
+}
+
+.upload-box h3{
+    color:white;
+    margin-bottom:10px;
+}
+
+.upload-box p{
+    color:#f0f0f0;
+}
+
+input[type="file"]{
+    display:none;
+}
+
+button{
+    width:100%;
+    margin-top:30px;
+
+    padding:15px;
+
+    border:none;
+    border-radius:12px;
+
+    background:white;
+    color:#0077ff;
+
+    font-size:18px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+@media(max-width:768px){
+
+    .card{
+        padding:30px;
+    }
+
+    h1{
+        font-size:1.8rem;
+    }
+}
+          </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1><i class="fa-solid fa-book-open"></i> Audio Book Summarizer</h1>
+
+            <p class="subtitle">
+                Upload your audiobook and get an AI-generated summary instantly.
+            </p>
+
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+
+                <label for="audio" class="upload-box">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    <h3>Drag & Drop Audio File</h3>
+
+                    <p>or click to browse</p>
+
+                    <input type="file"
+                           id="audio"
+                           name="audio"
+                           accept=".mp3,.wav,.m4a"
+                           required>
+
+                </label>
+
+                <button type="submit">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    Summarize Audio
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

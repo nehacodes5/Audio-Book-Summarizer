@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Result</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background: linear-gradient(135deg,#4facfe,#00f2fe);
+            padding:40px 20px;
+        }
+
+        .container{
+            max-width:1000px;
+            margin:auto;
+        }
+
+        .heading{
+            text-align:center;
+            color:white;
+            margin-bottom:40px;
+            font-size:3rem;
+        }
+
+        .card{
+            background:rgba(255,255,255,0.95);
+            border-radius:20px;
+            padding:30px;
+            margin-bottom:30px;
+            box-shadow:0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card h2{
+            color:#0077ff;
+            margin-bottom:20px;
+            font-size:2rem;
+        }
+
+        .card p{
+            font-size:1.1rem;
+            line-height:1.8;
+            color:#333;
+            text-align:justify;
+        }
+
+        .summary-box{
+            background:#f8fbff;
+            border-left:6px solid #0077ff;
+        }
+
+        .btn{
+            display:block;
+            width:250px;
+            margin:30px auto;
+            text-align:center;
+            text-decoration:none;
+            padding:15px;
+            border-radius:12px;
+            background:white;
+            color:#0077ff;
+            font-weight:bold;
+            font-size:18px;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            transform:translateY(-3px);
+            box-shadow:0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        audio{
+            width:100%;
+            margin-top:20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="heading">
+            <i class="fa-solid fa-book-open"></i>
+            Audio Analysis Result
+        </h1>
+
+        <div class="card">
+            <h2>
+                <i class="fa-solid fa-file-lines"></i>
+                Audio Transcript
+            </h2>
+
+            <p>{{ transcript }}</p>
+
+            <audio controls>
+                <source src="{{ url_for('static', filename='uploads/' + filename) }}">
+            </audio>
+
+        </div>
+
+        <div class="card summary-box">
+
+            <h2>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                AI Summary
+            </h2>
+
+            <p>{{ summary }}</p>
+
+        </div>
+
+        <a href="/" class="btn">
+            <i class="fa-solid fa-upload"></i>
+            Upload Another Audio
+        </a>
+
+    </div>
+
+</body>
+</html>
